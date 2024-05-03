@@ -14,7 +14,7 @@
             </center>
             <div class="form-group">
                 <label for="exampleInputEmail1">Table Name</label>
-                <input type="text" class="form-control" name="name" placeholder="Enter drink name">
+                <input type="text" class="form-control" name="name" placeholder="Enter Table number">
             </div>
             <center><input type="submit" class="btn btn-primary" value="Add"></center>
         </form>

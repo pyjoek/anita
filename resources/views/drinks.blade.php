@@ -19,17 +19,23 @@
 </head>
 <body>
 <div class="container">
-    <nav class="navbar navbar-expand-lg d-flex justify-content-between navbar-light ">
-      <!-- Brand/logo -->
-      <a class="navbar-brand" href="/">ARUSHA BACKPACKERS</a>
-      <!-- Toggler/collapsibe Button -->
-      <!-- <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsibleNavbar">
-        <span class="navbar-toggler-icon"></span>
-      </button> -->
-      <a href="/login"><button class="btn btn-primary">Login</button></a>
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <a class="navbar-brand" href="/">ARUSHA BACKPACKERS</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+                aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav ml-auto">
+                <li class="nav-item">
+                    <a class="nav-link" href="/login">Login</a>
+                </li>
+            </ul>
+        </div>
     </nav>
     <div class="d-flex justify-content-around mb-3">
-        <a href="/"><button class="btn btn-success">Foods</button></a>
+        <a href="/food"><button class="btn btn-success">Foods</button></a>
         <a href="/drinks"><button class="btn btn-success">Drinks</button></a>
     </div>
 
@@ -39,7 +45,6 @@
         @foreach ($drinks as $product)
         <div class="col-md-6 product-row"> <!-- Add product-row class to each column -->
             <div class="card">
-                <!-- <a href = "/order/{{$product -> id}}"> -->
                 <div><img src="{{ asset('images/'.$product -> img) }}" height="200" class="card-img-top img-fluid" alt="{{ $product->foodname }}"></div>
                 <div class="card-body d-flex justify-content-between">
                     <h5 class="card-title">{{ $product->drinkname }}</h5>
@@ -53,10 +58,10 @@
         </div>
         @endforeach
     </div>
-    </div>
-</body>
+</div>
 
 <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
 </html>

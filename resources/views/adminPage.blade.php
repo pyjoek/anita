@@ -6,65 +6,85 @@
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
     <title>Document</title>
     <style>
-    .long-content {
-      height: max-content; /* You can adjust the height as needed */
-      overflow-y: auto; /* Add scrollbar if content exceeds height */
-    }
-  </style>
-
+        .long-content {
+            height: max-content; /* You can adjust the height as needed */
+            overflow-y: auto; /* Add scrollbar if content exceeds height */
+        }
+    </style>
 </head>
 <body>
     <div class="container">
-    <nav class="navbar navbar-expand-lg d-flex justify-content-center navbar-light ">
-      <!-- Brand/logo -->
-      <div>
-      <!-- <img src="{{asset('favicon.jpg')}}" width="40px" height="40px" alt="logo goes here">&nbsp -->
-      <h1>{{config('app.name')}}</h1>
-      </div>
-      <!-- Toggler/collapsibe Button -->
-      <!-- <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsibleNavbar">
-        <span class="navbar-toggler-icon"></span>
-      </button> -->
-    </nav>
-    <div class="row">
-        <!-- left side bar -->
-        <div class="col-sm-2 d-flex flex-column">
-            <!-- <a href="/register" class="p-2">Add User</a> -->
-            <a href="/newF" class="p-2">Add Food</a>
-            <a href="/newD" class="p-2">Add Drink</a>
-            <a href="/newTable" class="p-2">Add Table</a>
-            <a href="/del/foods" class="p-2">Delete Foods</a>
-            <a href="/del/drinks" class="p-2">Delete Drinks</a>
-            <a href="/waliokubali" class="p-2">Waiters Accepted</a>
-            <a href="/logout"><button class="btn btn-primary">Logout</button></a>
+        <nav class="navbar navbar-expand-lg navbar-light bg-light">
+            <div class="container-fluid">
+                <a class="navbar-brand">{{config('app.name')}}</a>
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
+                    aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarNav">
+                    <ul class="navbar-nav mr-auto">
+                        <li class="nav-item">
+                            <a class="nav-link" href="/newF">Add Food</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="/newD">Add Drink</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="/newTable">Add Table</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="/del/foods">Delete Foods</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="/del/drinks">Delete Drinks</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="/waliokubali">Waiters Accepted</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="/logout">Logout</a>
+                        </li>
+                    </ul>
+                </div>
             </div>
-
-            <!-- right side bar -->
-            <div class="col-sm-10 long-content">
-            <center>
-            <h1 class="mt-2">Request to Waiter</h1>
-        </center>
-            <div class="d-flex justify-content-around mb-3">
-        <a href="/admin1"><button class="btn btn-success">Orders</button></a>
-        <a href="/admin"><button class="btn btn-success">Request</button></a>
-    </div>
-        <table class="table">
-            <th scope="lol">Table Number</th>
-            <th scope="lol">Food Ordered</th>
-            <th scope="lol">Customers Phone</th>
-            @foreach ($waiters as $waiter)
-                <tr>
-                    <td>{{$waiter->tablename}}</td>
-                    <td>{{$waiter->foodname}}</td>
-                    <td>{{$waiter->phone}}</td>
-                </tr>
-            @endforeach
-        </table>
+        </nav>
+        <div class="row mt-3">
+            <div class="col-sm-12">
+                <center>
+                    <h1>Request to Waiter</h1>
+                </center>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-sm-12 long-content">
+                <div class="d-flex justify-content-around mb-3">
+                    <a href="/admin1"><button class="btn btn-success">Orders</button></a>
+                    <a href="/admin"><button class="btn btn-success">Request</button></a>
+                </div>
+                <table class="table">
+                    <thead>
+                        <tr>
+                            <th scope="col">Table Number</th>
+                            <th scope="col">Food Ordered</th>
+                            <th scope="col">Customer's Phone</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach ($waiters as $waiter)
+                        <tr>
+                            <td>{{$waiter->tablename}}</td>
+                            <td>{{$waiter->foodname}}</td>
+                            <td>{{$waiter->phone}}</td>
+                        </tr>
+                        @endforeach
+                    </tbody>
+                </table>
             </div>
         </div>
     </div>
-</body>
-<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
 </html>

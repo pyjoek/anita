@@ -39,7 +39,7 @@ class TableController extends Controller
         $data->name = $request->name;
         $data->save();
 
-        return redirect('/');
+        return redirect('/admin');
     }
 
     /**

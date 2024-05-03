@@ -4,6 +4,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Auth\AuthenticatedSessionController;
 use App\Http\Controllers\FoodController;
 use App\Http\Controllers\DrinksController;
+use App\Http\Controllers\Auth\RegisteredUserController;
 use App\Http\Controllers\TableController;
 use App\Http\Controllers\AcceptController;
 use App\Http\Controllers\OrderController;
@@ -11,7 +12,7 @@ use App\Http\Controllers\WaiterController;
 require __DIR__.'/auth.php';
 
 // food urls
-Route::get('/', [FoodController::class, 'index']);
+Route::get('/food', [FoodController::class, 'index']);
 Route::get('/order/{id}', [FoodController::class, 'show']);
 Route::get('/waiter/{id}', [FoodController::class, 'see']);
 
@@ -33,6 +34,10 @@ Route::middleware('auth')->group(function () {
     Route::get('logout', [AuthenticatedSessionController::class, 'destroy']);
     Route::get('/dashboard', [OrderController::class, 'index'])->name('dashboard');
     Route::post('/accepted', [AcceptController::class, 'store']);
+
+    // Route::post('/register', 'RegistrationController@register')->middleware('Cadmin');
+    // Route::post('register', [RegisteredUserController::class, 'store'])->middleware('Cadmin');
+
     
     Route::middleware('role:admin')->group(function () {
         Route::get('/admin1', [OrderController::class, 'admin1']);
