@@ -58,7 +58,7 @@ class OrderController extends Controller
         $datas->tablename = $request->tablename;
         $datas->save();
 
-        return redirect('/');
+        return redirect('/food');
     }
 
     /**
